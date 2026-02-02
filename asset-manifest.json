@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/puck/static/css/main.02f59682.css",
+    "main.js": "/puck/static/js/main.58acf3dd.js",
+    "index.html": "/puck/index.html",
+    "main.02f59682.css.map": "/puck/static/css/main.02f59682.css.map",
+    "main.58acf3dd.js.map": "/puck/static/js/main.58acf3dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02f59682.css",
+    "static/js/main.58acf3dd.js"
+  ]
+}
