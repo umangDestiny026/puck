@@ -1060,7 +1060,7 @@ const config = {
 
         title: "Card Title",
         titleColor: "#111827",
-        description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis, recusandae explicabo quisquam commodi vel animi. A perferendis sit possimus dolorem fugiat reiciendis aliquam sint quibusdam, maiores nihil eligendi repudiandae. Dolor, eius dolorum. Quas adipisci facilis itaque eligendi, quod eveniet blanditiis pariatur vero molestias fugiat necessitatibus placeat illo culpa est doloremque! Odit sunt officiis enim similique commodi, vel culpa exercitationem illo deleniti minima vero dicta quia at ipsum ut quidem magni voluptas quisquam maiores nemo! Minus molestiae fuga architecto, unde eius quo magnam nihil sapiente consequatur odit vero iusto cupiditate earum aut quae labore fugit amet laboriosam! Quos, quod vitae?",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nobis, recusandae explicabo quisquam commodi vel animi. A perferendis sit possimus dolorem fugiat reiciendis aliquam sint quibusdam, maiores nihil eligendi repudiandae. Dolor, eius dolorum. Quas adipisci facilis itaque eligendi, quod eveniet blanditiis pariatur vero molestias fugiat necessitatibus placeat illo culpa est doloremque! Odit sunt officiis enim similique commodi, vel culpa exercitationem illo deleniti minima vero dicta quia at ipsum ut quidem magni voluptas quisquam maiores nemo! Minus molestiae fuga architecto, unde eius quo magnam nihil sapiente consequatur odit vero iusto cupiditate earum aut quae labore fugit amet laboriosam! Quos, quod vitae?",
         descriptionColor: "#374151",
         textAlign: "left",
 
@@ -1201,7 +1201,7 @@ function Editor() {
       data={saved}
       onPublish={(data) => {
         const item = JSON.stringify(data);
-        console.log(`puck-${page}`, item);
+        console.log(item);
       }}
     />
   );
@@ -1209,16 +1209,9 @@ function Editor() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      {/* <nav style={{ padding: 16 }}>
-        <Link to="/edit/home">Home</Link> |{" "}
-        <Link to="/edit/about">About</Link> |{" "}
-        <Link to="/edit/contact">Contact</Link>
-      </nav> */}
-
-      <Routes>
-        <Route path="/" element={<Editor />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Editor />
+    </>
+   
   );
 }
