@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link, useParams } from "react-router-dom";
 import { Puck } from "@measured/puck";
 import "@measured/puck/puck.css";
+import MainSlider from "./MainSlider";
 
 const initialData = { content: [] };
 
@@ -801,6 +802,96 @@ const config = {
       },
     },
 
+    Carousel: {
+      label: "Carousel",
+
+      fields: {
+        /* -------- SLIDES -------- */
+        slides: {
+          type: "array",
+          label: "Slides",
+          arrayFields: {
+            imageMobile: { type: "text", label: "Mobile image URL" },
+            imageDesktop: { type: "text", label: "Desktop image URL" },
+            title: { type: "text", label: "Title" },
+            description: { type: "textarea", label: "Description" },
+            link: { type: "text", label: "Link (optional)" },
+            videoUrl: { type: "text", label: "Video URL (optional)" },
+
+            showButton: {
+              type: "radio",
+              label: "Show button?",
+              options: [
+                { label: "Yes", value: true },
+                { label: "No", value: false },
+              ],
+            },
+
+            buttonLink: { type: "text", label: "Button link" },
+          },
+        },
+
+        /* -------- SLIDER CONTROLS -------- */
+        showDots: {
+          type: "radio",
+          label: "Show pagination dots?",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+
+        showArrows: {
+          type: "radio",
+          label: "Show navigation arrows?",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+
+        autoplayDelay: {
+          type: "number",
+          label: "Autoplay delay (ms)",
+        },
+
+        alignBottom: {
+          type: "radio",
+          label: "Align text bottom?",
+          options: [
+            { label: "Yes", value: true },
+            { label: "No", value: false },
+          ],
+        },
+      },
+
+      defaultProps: {
+        slides: [],
+        showDots: true,
+        showArrows: false,
+        autoplayDelay: 3000,
+        alignBottom: false,
+      },
+
+      render: ({
+        slides,
+        showDots,
+        showArrows,
+        autoplayDelay,
+        alignBottom,
+      }) => {
+        return (
+          <MainSlider
+            slides={slides}
+            showDots={showDots}        // ✅ correct
+            showArrows={showArrows}    // ✅ correct
+            autoplayDelay={autoplayDelay} // ✅ correct
+            alignBottom={alignBottom}
+          />
+        );
+      },
+    },
+
     ImageText: {
       label: "Image + Text",
       fields: {
@@ -1212,6 +1303,6 @@ export default function App() {
     <>
       <Editor />
     </>
-   
+
   );
 }
